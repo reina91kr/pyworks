@@ -8,14 +8,14 @@ row = int(cust / col) #몫
 
 #나머지가 있는 경우와 없는 경우
 if (cust % col) == 0:
-    row = customer//col
+    row = cust//col
 else:
-    row = customer//col+1
+    row = cust//col+1
     
     for i in range (0,row):
         for j in range (1, col+1):
             seat = i * col + j
-            if seat > customer:
+            if seat > cust:
                 break
             print("좌석" + str(seat), end='')
         print()
