@@ -1,0 +1,40 @@
+#로또 복권 생성 프로그램
+#1~45번 중 추첨하기, 중복 x
+import random
+
+#lotto = [] #빈 리스트 준비
+
+#로또 복권 번호 1개 추첨
+num = random.randint(1, 45)
+print(num)
+
+#로또 복권 번호 6개 추첨 (반복문 사용)
+for i in range (0, 6): # 0 ~ 5의 범위
+    num = random.randint(1, 45)
+    print(num, end=" ")
+
+#리스트에 담기
+#빈 리스트 준비
+lotto = []
+
+"""
+* for문 사용한 경우 중복 제거하면 6개 미만으로 출력될 수 있음 
+for i in range (0, 6): # 0 ~ 5의 범위
+    num = random.randint(1, 45)
+    #조건문을 활용해 중복이 안되도록 출력
+    if num not in lotto:
+        lotto.append(num)
+"""
+
+#while문 사용하게 되면 6개가 채워질때까지 반복
+
+while len(lotto) < 6: #Lotto의 수가 6보다 작을 때 (0~5 / 5개)
+    num = random.randint(1,45)
+    if num not in lotto:
+        lotto.append(num)
+
+
+
+print()
+
+print(lotto)
