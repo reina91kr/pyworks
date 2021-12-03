@@ -28,5 +28,22 @@ def get_loopindex():
     items = ['a','b','c','d']
     return render_template('loop_index.html', items=items)
 
+@app.route("/even_odd/", methods = ['GET', 'POST'])
+def even_odd():
+    if request.method == "POST":
+        try:
+            num = int(request.form['num'])
+        except ValueError:
+            error_message = "숫자를 입력해주세요."
+            return render_template('even_odd.html', error_message= error_message)
+        else:
+            if num % 2 == 0:
+                result = "짝수입니다."
+            else:
+                result = "홀수입니다."
+
+            return render_template('calc_result.html', num = num, result = result)
+    else:
+        return render_template('even_odd.html')
 
 app.run(debug=True)     #개발중임을 표시 / 서비스 할 때 False로 변경해야 함
