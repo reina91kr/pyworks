@@ -46,8 +46,8 @@ def select_book():
 def del_book():
     conn = getconn()
     cur = conn.cursor()
-    sql = "DELETE FROM book WHERE book_no=?"
-    cur.execute(sql, ('1',))
+    sql = "DELETE FROM book"
+    cur.execute(sql)
     conn.commit()
     conn.close()
 
@@ -55,7 +55,7 @@ def insert_book():
     conn = getconn()
     cur = conn.cursor()
     sql = "INSERT INTO book (title, publisher, page) VALUES (?, ?, ?)"
-    cur.execute(sql, ('점프 투 파이썬', '박응용', 300))
+    cur.execute(sql, ('웹 표준의 정석', '고경희', 600))
     conn.commit()
     conn.close()
 
@@ -71,14 +71,14 @@ def select_one():
 def update_book():
     conn = getconn()
     cur = conn.cursor()
-    sql = "UPDATE book SET page = ? WHERE book_no =? "
-    cur.execute(sql, (300, 4))
+    sql = "UPDATE book SET title =?, publisher = ?, page = ? WHERE book_no =? "
+    cur.execute(sql, ("점프 투 파이썬2", "김명석", 500, 5))
     conn.commit()
     conn.close()
 
 if __name__=="__main__":
-    #create_table()
-    # insert_book()
+    # create_table()
+    insert_book()
     # del_book()
     # insert_book()
     select_book()
