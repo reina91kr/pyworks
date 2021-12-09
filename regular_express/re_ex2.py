@@ -7,3 +7,8 @@ str = "123?45yy7890"
 m = re.findall("[0-9]{1,3}", str) #compile을 안쓰고 범위를 바로 설정할 수도 있음
 
 print(m)
+
+
+m2 = re.findall("[A-z]+", str)
+
+print(m2)
